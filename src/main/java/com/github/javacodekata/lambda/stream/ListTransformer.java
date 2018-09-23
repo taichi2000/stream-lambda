@@ -39,7 +39,12 @@ public class ListTransformer {
 	 * @return
 	 */
 	public List<Integer> getSortedIntegers() {
-		return new LinkedList<>();
+	    return values.stream()
+                .filter(word ->
+                                word.chars().allMatch(c -> Character.isDigit(c)))
+                .map(word -> Integer.valueOf(word))
+                .sorted()
+                .collect(Collectors.toList());
 	}
 
 	/**
@@ -54,5 +59,4 @@ public class ListTransformer {
 	public List<Integer> getSortedDescendingIntegers() {
 		return new LinkedList<>();
 	}
-
 }
