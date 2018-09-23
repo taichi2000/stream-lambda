@@ -2,6 +2,8 @@ package com.github.javacodekata.lambda.stream;
 
 import com.google.common.collect.ImmutableList;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -25,7 +27,11 @@ public class ListTransformer {
 	 * @return The sorted values in ascending ASCII order.
 	 */
 	public List<String> getSortedStrings() {
-		return values;
+        List<String> copyOfValues = new ArrayList<>(values);
+
+        Collections.sort(copyOfValues);
+
+        return copyOfValues;
 	}
 
 	/**
