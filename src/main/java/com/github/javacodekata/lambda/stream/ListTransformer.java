@@ -58,7 +58,27 @@ public class ListTransformer {
 	 * @return
 	 */
 	public List<Integer> getSortedDescendingIntegers() {
-		return new LinkedList<>();
+        List<String> copyOfValues = new ArrayList<>(values);
+
+        CollectionUtils.filter(copyOfValues, new Predicate() {
+            @Override
+            public boolean evaluate(Object object) {
+                return ((String) object).matches("\\d+");
+            }
+        });
+
+        Collection<Integer> integers = (Collection<Integer>) CollectionUtils.collect(copyOfValues, new Transformer() {
+            @Override
+            public Object transform(Object input) {
+                return Integer.valueOf((String) input);
+            }
+        });
+
+        ArrayList<Integer> integersList = new ArrayList<>(integers);
+
+        Collections.sort(integersList, Collections.reverseOrder());
+
+        return integersList;
 	}
 
 }
