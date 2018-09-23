@@ -4,6 +4,7 @@ import com.google.common.collect.ImmutableList;
 
 import java.util.LinkedList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import static com.google.common.base.Preconditions.checkNotNull;
 
@@ -25,7 +26,7 @@ public class ListTransformer {
 	 * @return The sorted values in ascending ASCII order.
 	 */
 	public List<String> getSortedStrings() {
-		return values;
+		return values.stream().sorted().collect(Collectors.toList());
 	}
 
 	/**
