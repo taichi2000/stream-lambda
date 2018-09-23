@@ -40,8 +40,8 @@ public class ListTransformer {
 	 */
 	public List<Integer> getSortedIntegers() {
 	    return values.stream()
-                .filter(word ->
-                                word.chars().allMatch(c -> Character.isDigit(c)))
+                .filter(candidate ->
+                                candidate.chars().allMatch(c -> Character.isDigit(c)))
                 .map(word -> Integer.valueOf(word))
                 .sorted()
                 .collect(Collectors.toList());
@@ -58,8 +58,8 @@ public class ListTransformer {
 	 */
 	public List<Integer> getSortedDescendingIntegers() {
         return values.stream()
-                .filter(word ->
-                                word.chars().allMatch(c -> Character.isDigit(c)))
+                .filter(candidate ->
+                                candidate.chars().allMatch(c -> Character.isDigit(c)))
                 .map(word -> Integer.valueOf(word))
                 .sorted(Comparator.reverseOrder())
                 .collect(Collectors.toList());
