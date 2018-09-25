@@ -29,7 +29,7 @@ public class DateApiTest {
 
         long daysBetween = dateApi.daysBetween(origin, end);
 
-        assertThat(daysBetween, is(18));
+        assertThat(daysBetween, is(17L));
     }
 
 
