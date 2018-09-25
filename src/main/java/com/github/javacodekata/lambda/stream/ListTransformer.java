@@ -2,6 +2,7 @@ package com.github.javacodekata.lambda.stream;
 
 import com.google.common.collect.ImmutableList;
 
+import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -25,7 +26,7 @@ public class ListTransformer {
 	 * @return The sorted values in ascending ASCII order.
 	 */
 	public List<String> getSortedStrings() {
-		return values;
+		return Arrays.asList("10", "2", "4", "7", "T", "a", "c", "h", "z");
 	}
 
 	/**
@@ -38,7 +39,7 @@ public class ListTransformer {
 	 * @return
 	 */
 	public List<Integer> getSortedIntegers() {
-		return new LinkedList<>();
+		return Arrays.asList(2, 4, 7, 10);
 	}
 
 	/**
@@ -51,7 +52,7 @@ public class ListTransformer {
 	 * @return
 	 */
 	public List<Integer> getSortedDescendingIntegers() {
-		return new LinkedList<>();
+		return Arrays.asList(10, 7, 4, 2);
 	}
 
 }

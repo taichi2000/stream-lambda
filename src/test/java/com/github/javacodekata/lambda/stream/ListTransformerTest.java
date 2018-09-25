@@ -35,5 +35,4 @@ public class ListTransformerTest {
 	public void testGetSortedDescendingIntegers() throws Exception {
 		assertThat(listTransformer.getSortedDescendingIntegers(), is(equalTo(Arrays.asList(10, 7, 4, 2))));
 	}
-
 }
