@@ -21,6 +21,25 @@ public class DateApi {
     }
 
     public DateRange searchRangeSince(Date date, int daysBefore){
-        return null;
+        Calendar calendarFrom = Calendar.getInstance();
+        calendarFrom.setTime(date);
+
+        calendarFrom.add(Calendar.DAY_OF_MONTH, -daysBefore);
+        calendarFrom.set(Calendar.HOUR_OF_DAY, 0);
+        calendarFrom.set(Calendar.MINUTE, 0);
+        calendarFrom.set(Calendar.SECOND, 0);
+
+        Calendar calendarTo = Calendar.getInstance();
+        calendarTo.setTime(date);
+
+        calendarTo.add(Calendar.DAY_OF_MONTH, 1);
+        calendarTo.set(Calendar.HOUR_OF_DAY, 0);
+        calendarTo.set(Calendar.MINUTE, 0);
+        calendarTo.set(Calendar.SECOND, 0);
+
+        Date from = calendarFrom.getTime();
+        Date to = calendarTo.getTime();
+
+        return new DateRange(from, to);
     }
 }
