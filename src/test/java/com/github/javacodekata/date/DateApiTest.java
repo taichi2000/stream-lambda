@@ -1,7 +1,5 @@
 package com.github.javacodekata.date;
 
-import org.hamcrest.CoreMatchers;
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -9,10 +7,12 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import static org.hamcrest.CoreMatchers.is;
+import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertThat;
 
 public class DateApiTest {
     private SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+
     private DateApi dateApi;
 
 
@@ -30,5 +30,20 @@ public class DateApiTest {
         long daysBetween = dateApi.daysBetween(origin, end);
 
         assertThat(daysBetween, is(18));
+    }
+
+
+    @Test
+    public void dateRangeSinceToday() throws Exception {
+        Date september30_noon = dateFormat.parse("2018-09-30 12:00:00");
+
+        DateRange range = dateApi.searchRangeSince(september30_noon, 10);
+
+        Date september20_midnight = dateFormat.parse("2018-09-20 00:00:00");
+        Date october_1_midnight = dateFormat.parse("2018-10-01 00:00:00");
+
+        assertNotNull(range);
+        assertThat(range.getFrom(), is(september20_midnight));
+        assertThat(range.getTo(), is(october_1_midnight));
     }
 }
